@@ -1,0 +1,34 @@
+---
+layout: default
+title: Blog
+description: Made includes a beautiful grid-based blog with pagination.
+featured_image: /images/social.jpg
+---
+
+<div class="page-blog">
+	<header class="header--single">
+		<div class="wrap">
+			<h1 class="header__title">Resume</h1>
+			<p class="header__subtitle subtitle--light">Find out things about me</p>
+		</div>
+	</header>
+
+	<h3>I'm writting something here</h3>
+
+	{% if paginator.total_pages > 1 %}
+
+	<section class="pagination">
+		<div class="wrap">
+			{% if paginator.previous_page %}
+			<a href="{{ paginator.previous_page_path | relative_url }}"
+				class="button--text--accent --left pagination__prev">Newer Posts</a>
+			{% endif %}
+			{% if paginator.next_page %}
+			<a href="{{ paginator.next_page_path | relative_url }}"
+				class="button--text--accent --right pagination__next">Older Posts</a>
+			{% endif %}
+		</div>
+	</section>
+
+	{% endif %}
+</div>
